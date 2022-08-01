@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-Management-System</title>
+    <link rel="stylesheet" href="productMS.css">
+</head>
+
+<body>
+    <header>
+        <h1>Product Management System</h1>
+    </header>
+    <main>
+        <section class="products">
+            <h2>Products</h2>
+            <div>
+                <div class="product-1">
+                    <img src="camera.jpg" height="200px" alt="camera">
+                    <span>
+                        <p class="one item">NIKON Z 50</p>
+                        <p class="one price">75499</p>
+                        <button class="btn" id="one">Add to cart</button>
+                    </span>
+                </div>
+                <div>
+                    <img src="laptop.jpg" height="200px" alt="laptop">
+                    <span>
+                        <p class="two item">APPLE MACBOOK PRO</p>
+                        <p class="two price">99000</p>
+                        <button class="btn" id="two">Add to cart</button>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="cart">
+            <h2>Add to cart</h2>
+            <ul class="inside-cart"></ul>
+            <button class="check-out">Check out</button>
+            <ul class="totalSum"></ul>
+            <button class="purchase">Purchase</button>
+        </section>
+    </main>
+    <script src="productMS.js"></script>
+</body>
+
+</html>
