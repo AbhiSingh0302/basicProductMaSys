@@ -4,6 +4,9 @@ checkOut.style.visibility = 'hidden';
 let purchase = document.querySelector('.purchase');
 purchase.style.visibility = 'hidden';
 
+let cancel = document.querySelector('.cancel');
+cancel.style.visibility = 'hidden';
+
 let cartItems = [];
 function addItem(product, price, status=0) {
     let item = {
@@ -35,6 +38,7 @@ function addToCart() {
 }
 
 function cart(item){
+    checkOut.disabled = false;
     let i=1;
     let sum = 0;
     let liItem = document.createElement('li');
@@ -86,8 +90,9 @@ function cart(item){
     let ulCheckOut = document.querySelector('.totalSum');
     let liCheckOut = document.createElement('li');
     checkOut.addEventListener('click', function(){
-        inBtn.disabled = true;
-        deBtn.disabled = true;
+        inBtn.remove();
+        deBtn.remove();
+        button.disabled = true;
         if(liCount.className == item.Status){
             item.count = i;
             if(Number(item.Price)*Number(item.count)>0){
@@ -96,8 +101,25 @@ function cart(item){
             ulCheckOut.append(liCheckOut);
             }
         }
-        checkOut.disabled = true;
+        // checkOut.disabled = true;
         purchase.style.visibility = 'visible';
+        cancel.style.visibility = 'visible';
+    })
+
+    cancel.addEventListener('click', function(){
+        liCheckOut.remove();
+        liCount.remove();
+        liItem.remove();
+        liPrice.remove();
+        inBtn.remove();
+        deBtn.remove();
+        button.forEach(a=>a.disabled=false);
+        checkOut.style.visibility = 'hidden';
+        purchase.style.visibility = 'hidden';
+        cancel.style.visibility = 'hidden';
+        for(let key of cartItems){
+            key.Status=0;
+        }
     })
     purchase.addEventListener('click', function(e){
         e.stopImmediatePropagation();
